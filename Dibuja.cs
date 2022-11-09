@@ -68,27 +68,19 @@ namespace Hundir
                     Console.SetCursorPosition(x + (j * 4) + 1, y + (i * 2) + 1);
                     if (T.Mar[j, i] && T.CoordenadaEnBarcos(j, i))
                     {
-                        if (T.CoordenadaEnBarcos(j, i))
-                        {
-                            Console.BackgroundColor = ConsoleColor.Red;
-                            Console.Write("   ");
-                            Console.ResetColor();
-                        }
-                        else
-                        {
-                            Console.BackgroundColor = ConsoleColor.Blue;
-                            Console.Write("   ");
-                            Console.ResetColor();
-                        }
-
+                        Console.BackgroundColor = ConsoleColor.Red;
+                    }
+                    else if (T.Mar[j, i] )
+                    {
+                        Console.BackgroundColor = ConsoleColor.Blue;
                     }
                     else
                     {
                         Console.BackgroundColor = ConsoleColor.Gray;
-                        Console.Write("   ");
-                        Console.ResetColor();
                     }
-                    
+                    Console.Write("   ");
+                    Console.ResetColor();
+
                 }
             }
         }
