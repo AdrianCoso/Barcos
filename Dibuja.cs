@@ -66,7 +66,7 @@ namespace Hundir
                 for (int j = 0; j < 10; j++)
                 {
                     Console.SetCursorPosition(x + (j * 4) + 1, y + (i * 2) + 1);
-                    if (T.Mar[j, i])
+                    if (T.Mar[j, i] && T.CoordenadaEnBarcos(j, i))
                     {
                         if (T.CoordenadaEnBarcos(j, i))
                         {
