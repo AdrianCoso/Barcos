@@ -5,7 +5,7 @@ namespace Hundir{
         static void Main(string[] args)
         {
             //Funcionamiento completo del juego, puede convenir comentar parte del código para comprobar que funcionan los métodos que vamos creando   
-            Tablero tableroUsuario = Tablero.tableroMaquina();
+            Tablero tableroUsuario = Tablero.tableroUser();
             Tablero tableroMaquina = Tablero.tableroMaquina();
 
             Console.Clear();

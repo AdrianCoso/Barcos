@@ -16,17 +16,26 @@ namespace Hundir
         {
             //Opcional. Para dibujar los bordes del tablero. x e y representan la posición en la que quiero que 
             //aparezca el tablero
+            //Primero escribimos el número de columnas para ayudarnos a identificar las coordenadas de cada casilla
+            Console.SetCursorPosition(x+1, y);
+            for (int i = 0; i < 10; i++)
+            {
+                Console.Write("| " + i+" ");
+            }
+            Console.WriteLine("|");
             //Dibujamos diez veces el mismo patrón de líneas y espacios
             for (int fila = 0; fila < 10; fila++)
             {
-                Console.SetCursorPosition(x, y + (fila * 2));
+                Console.SetCursorPosition(x+1, y + (fila * 2)+1);
                 for (int i = 0; i < 10; i++)
                 {
                     Console.Write("+---");
                 }
                 Console.WriteLine("+");
                 //Colocamos el cursor para la siguiente fila
-                Console.SetCursorPosition(x, y + (fila * 2) + 1);
+                Console.SetCursorPosition(x, y + (fila * 2) + 2);
+                //Escribimos el número de fila para ayudar a identificar las coordenadas de cada casilla
+                Console.Write(fila);
 
                 for (int i = 0; i < 10; i++)
                 {
@@ -34,7 +43,7 @@ namespace Hundir
                 }
                 Console.WriteLine("|");
                 //Nos colocamos al final para cerrar el cuadro
-                Console.SetCursorPosition(x, y + 20);
+                Console.SetCursorPosition(x + 1, y + 21);
                 for (int i = 0; i < 10; i++)
                 {
                     Console.Write("+---");
@@ -65,7 +74,7 @@ namespace Hundir
             {
                 for (int j = 0; j < 10; j++)
                 {
-                    Console.SetCursorPosition(x + (j * 4) + 1, y + (i * 2) + 1);
+                    Console.SetCursorPosition(x + (j * 4) + 2, y + (i * 2) + 2);
                     if (T.Mar[j, i] && T.CoordenadaEnBarcos(j, i))
                     {
                         Console.BackgroundColor = ConsoleColor.Red;
@@ -103,7 +112,7 @@ namespace Hundir
             {
                 for (int j = 0; j < 10; j++)
                 {
-                    Console.SetCursorPosition(x + (j * 4) + 1, y + (i * 2) + 1);
+                    Console.SetCursorPosition(x + (j * 4) + 2, y + (i * 2) + 2);
                     if (Tablero.CoordenadaEnBarcos(B, j, i))
                     {
                         Console.BackgroundColor = ConsoleColor.Red;
@@ -137,7 +146,7 @@ namespace Hundir
             {
                 for (int j = 0; j < 10; j++)
                 {
-                    Console.SetCursorPosition(x + (j * 4) + 1, y + (i * 2) + 1);
+                    Console.SetCursorPosition(x + (j * 4) + 2, y + (i * 2) + 2);
                     if (T.CoordenadaEnBarcos(j, i))
                         
                     {
