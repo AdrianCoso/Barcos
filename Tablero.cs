@@ -73,6 +73,20 @@ namespace Hundir{
              return false; 
         }
 
+        public static Boolean CoordenadaEnBarcos(Barco[] Barcos, int x, int y)
+        {
+            Punto p = new Punto(x, y);
+            for (int i = 0; i < 10; i++)
+            {
+                for (int j = 0; j < Barcos[i].Longitud; j++)
+                {
+                    if (Barcos[i].aPuntos()[j].sonIguales(p)) return true;
+                }
+
+            }
+            return false;
+        }
+
         // Devuelve un Tablero, que representa el tablero del usuario. Se actualiza interactivamente la vista
         public static Tablero tableroUser(){
             Console.Clear();

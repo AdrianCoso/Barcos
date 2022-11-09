@@ -18,15 +18,15 @@ namespace Hundir{
 
             Console.Clear();
             Dibuja.DibujaCuadro(2,2);
-            Dibuja.TableroJuegoMaquina(tableroUsuario ,2,2);
+            Dibuja.TableroJuegoMaquina(tableroMaquina ,2,2);
             Dibuja.DibujaCuadro(55,2);
-            Dibuja.TableroJuegoMaquina(tableroMaquina ,55,2);
+            Dibuja.TableroJuegoMaquina(tableroUsuario ,55,2);
             Console.SetCursorPosition(33, 30);
             if(tableroUsuario.TotalTocados ==2 ){
-                Console.WriteLine("Enhorabuena, has ganado! ");
+                Console.WriteLine("Lo siento, has perdido! ");
             }
             else{
-                Console.WriteLine("Lo siento, has perdido! ");
+                Console.WriteLine("Enhorabuena, has ganado! ");
             }
             Console.ReadKey();
         }

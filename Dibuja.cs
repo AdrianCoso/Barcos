@@ -96,26 +96,28 @@ namespace Hundir
             //B --> Array de barcos
 
             //Para dibujar agua o barco puede convenir utilizar el método CoordenadaEnBarcos (static) de la clase tablero
-            /*for (int i = 0; i < 10; i++)
+            Tablero.CoordenadaEnBarcos(B, x, y);
+
+
+            for (int i = 0; i < 10; i++)
             {
                 for (int j = 0; j < 10; j++)
                 {
                     Console.SetCursorPosition(x + (j * 4) + 1, y + (i * 2) + 1);
-                    if (B.CoordenadaEnBarcos(j, i))
+                    if (Tablero.CoordenadaEnBarcos(B, j, i))
                     {
                         Console.BackgroundColor = ConsoleColor.Red;
-                        Console.Write("   ");
-                        Console.ResetColor();
+                        
                     }
                     else
                     {
                         Console.BackgroundColor = ConsoleColor.Blue;
-                        Console.Write("   ");
-                        Console.ResetColor();
                     }
                     
+                        Console.Write("   ");
+                        Console.ResetColor();
                 }
-            }*/
+            }
 
         }
 
@@ -141,14 +143,12 @@ namespace Hundir
                     {
                         Console.BackgroundColor = ConsoleColor.Red;
                         
-                        
                     }
                     
                     else
                     
                     {
                         Console.BackgroundColor = ConsoleColor.Blue;
-                        
                         
                     }
                     Console.ForegroundColor = ConsoleColor.Black;
