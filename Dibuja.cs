@@ -17,41 +17,47 @@ namespace Hundir
             //Opcional. Para dibujar los bordes del tablero. x e y representan la posición en la que quiero que 
             //aparezca el tablero
             //Primero escribimos el número de columnas para ayudarnos a identificar las coordenadas de cada casilla
-            Console.SetCursorPosition(x+1, y);
+            Console.SetCursorPosition(x + 1, y);
             for (int i = 0; i < 10; i++)
             {
-                Console.Write("| " + i+" ");
+                Console.Write("| " + i + " ");
             }
             Console.WriteLine("|");
             //Dibujamos diez veces el mismo patrón de líneas y espacios
             for (int fila = 0; fila < 10; fila++)
             {
                 Console.SetCursorPosition(x+1, y + (fila * 2)+1);
-                for (int i = 0; i < 10; i++)
-                {
-                    Console.Write("+---");
-                }
-                Console.WriteLine("+");
+                //Primero ponemos una línea para la parte superior de cada fila
+                dibujaLinea();
                 //Colocamos el cursor para la siguiente fila
                 Console.SetCursorPosition(x, y + (fila * 2) + 2);
                 //Escribimos el número de fila para ayudar a identificar las coordenadas de cada casilla
                 Console.Write(fila);
 
-                for (int i = 0; i < 10; i++)
+                for (int columna = 0; columna < 10; columna++)
                 {
                     Console.Write("|   ");
                 }
                 Console.WriteLine("|");
-                //Nos colocamos al final para cerrar el cuadro
+                //Dibujamos una línea más al final para cerrar el cuadro
                 Console.SetCursorPosition(x + 1, y + 21);
-                for (int i = 0; i < 10; i++)
-                {
-                    Console.Write("+---");
-
-                }
-                Console.WriteLine("+");
+                dibujaLinea();
             }
 
+        }
+        /**
+         * public static void dibujaLinea()
+         * 
+         * Escribe una sucesión de "+" y "-" para dibujar la parte superior de cada fila
+         */
+        private static void dibujaLinea()
+        {
+
+            for (int i = 0; i < 10; i++)
+            {
+                Console.Write("+---");
+            }
+            Console.WriteLine("+");
         }
 
         //Representa el tablero de juego de un jugador
@@ -70,16 +76,16 @@ namespace Hundir
 
             //Para dibujar agua o barco puede convenir utilizar el método  CoordenadaEnBarcos de la clase Tablero
 
-            for (int i = 0; i < 10; i++)
+            for (int fila = 0; fila < 10; fila++)
             {
-                for (int j = 0; j < 10; j++)
+                for (int columna = 0; columna < 10; columna++)
                 {
-                    Console.SetCursorPosition(x + (j * 4) + 2, y + (i * 2) + 2);
-                    if (T.Mar[j, i] && T.CoordenadaEnBarcos(j, i))
+                    Console.SetCursorPosition(x + (columna * 4) + 2, y + (fila * 2) + 2);
+                    if (T.Mar[columna, fila] && T.CoordenadaEnBarcos(columna, fila))
                     {
                         Console.BackgroundColor = ConsoleColor.Red;
                     }
-                    else if (T.Mar[j, i] )
+                    else if (T.Mar[columna, fila] )
                     {
                         Console.BackgroundColor = ConsoleColor.Blue;
                     }
@@ -105,26 +111,22 @@ namespace Hundir
             //B --> Array de barcos
 
             //Para dibujar agua o barco puede convenir utilizar el método CoordenadaEnBarcos (static) de la clase tablero
-            Tablero.CoordenadaEnBarcos(B, x, y);
-
-
-            for (int i = 0; i < 10; i++)
+            
+            for (int fila = 0; fila < 10; fila++)
             {
-                for (int j = 0; j < 10; j++)
+                for (int columna = 0; columna < 10; columna++)
                 {
-                    Console.SetCursorPosition(x + (j * 4) + 2, y + (i * 2) + 2);
-                    if (Tablero.CoordenadaEnBarcos(B, j, i))
+                    Console.SetCursorPosition(x + (columna * 4) + 2, y + (fila * 2) + 2);
+                    if (Tablero.CoordenadaEnBarcos(B, columna, fila))
                     {
                         Console.BackgroundColor = ConsoleColor.Red;
-                        
                     }
                     else
                     {
                         Console.BackgroundColor = ConsoleColor.Blue;
                     }
-                    
-                        Console.Write("   ");
-                        Console.ResetColor();
+                    Console.Write("   ");
+                    Console.ResetColor();
                 }
             }
 
@@ -142,26 +144,21 @@ namespace Hundir
 
         //Para dibujar agua o barco puede convenir utilizar el método creaBarco de la clase Barco
         {
-            for (int i = 0; i < 10; i++)
+            for (int fila = 0; fila < 10; fila++)
             {
-                for (int j = 0; j < 10; j++)
+                for (int columna = 0; columna < 10; columna++)
                 {
-                    Console.SetCursorPosition(x + (j * 4) + 2, y + (i * 2) + 2);
-                    if (T.CoordenadaEnBarcos(j, i))
-                        
+                    Console.SetCursorPosition(x + (columna * 4) + 2, y + (fila * 2) + 2);
+                    if (T.CoordenadaEnBarcos(columna, fila))
                     {
                         Console.BackgroundColor = ConsoleColor.Red;
-                        
                     }
-                    
                     else
-                    
                     {
                         Console.BackgroundColor = ConsoleColor.Blue;
-                        
                     }
                     Console.ForegroundColor = ConsoleColor.Black;
-                    if (T.Mar[j, i])
+                    if (T.Mar[columna, fila])
                     {
                         Console.Write(" X ");
                     }
